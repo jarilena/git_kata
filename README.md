@@ -1,6 +1,5 @@
 <<<<<<< HEAD
-# Git Kata
-# Git Kata
-# Git Kat
-=======
-# Git Kata  2
+#Jarilena
+#Sabina
+#22.05.2026
+This repo is for testing git
