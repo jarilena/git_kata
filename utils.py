@@ -12,17 +12,20 @@ def filter_passengers(df):
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """Clean a pandas DataFrame.
 
+    This function drops rows that contain any missing values and converts
+    all categorical (object/category) columns to lowercase strings.
+
     Parameters:
-    df (pd.DataFrame): The input DataFrame to clean.
+        df (pd.DataFrame): Input DataFrame to clean.
 
     Returns:
-    pd.DataFrame: The cleaned DataFrame with rows containing missing
-    values dropped and categorical columns converted to lowercase.
+        pd.DataFrame: Cleaned DataFrame with missing rows removed and
+        categorical columns lowercased.
     """
-    # Drop rows with any missing values
+    # Drop rows that have any missing values
     cleaned = df.dropna().copy()
 
-    # Find categorical/object columns and convert their string values to lowercase
+    # Convert object/category columns to lowercase strings
     cat_cols = cleaned.select_dtypes(include=["object", "category"]).columns
     for col in cat_cols:
         cleaned[col] = cleaned[col].astype(str).str.lower()
